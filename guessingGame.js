@@ -1,19 +1,42 @@
-// const readline = require('readline')
+const readline = require('readline')
 
-// const rl = readline.createInterface({
-//     input: process.stdin,
-//     outout:process.stdout
-// })
+const rl = readline.createInterface({
+    input: process.stdin,
+    outout: process.stdout
+})
 
 
 let secretNumber = 1
 
 const checkGuess = num => {
-    if(num > secretNumber) return 'Too High ' + false
-    if(num < secretNumber) return 'Too Low ' + false
-    if(num === secretNumber) return 'Correct! ' + true
-}
 
-console.log(checkGuess(4))
-console.log(checkGuess(2))
-console.log(checkGuess(1))
+if(num > secretNumber){
+ console.log( 'Too High ')
+  return false
+}
+    if(num < secretNumber){
+
+     console.log( 'Too Low ')
+     return false
+
+    }
+    if(num === secretNumber){
+
+     console.log( 'Correct! ')
+     return true
+    }
+
+}
+function askGuess() {
+  rl.question('Enter a guess: ', (num) =>{
+    // console.log('hello')
+  checkGuess(Number(num))
+  rl.close()
+
+})
+}
+// console.log(askGuess(4))
+// console.log(askGuess(2))
+// console.log(askGuess(1))
+askGuess()
+// console.log('hello')
